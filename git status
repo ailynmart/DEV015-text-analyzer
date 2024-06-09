@@ -1,0 +1,270 @@
+[1mdiff --git a/src/analyzer.js b/src/analyzer.js[m
+[1mindex 85797a8..be35d70 100644[m
+[1m--- a/src/analyzer.js[m
+[1m+++ b/src/analyzer.js[m
+[36m@@ -1,22 +1,31 @@[m
+[31m-const analyzer = {  [m
+[32m+[m[32mconst analyzer = {[m
+   getWordCount: (text) => {[m
+     //TODO: esta función debe retornar el recuento de palabras que se encuentran en el parámetro `text` de tipo `string`.[m
+[31m-  },[m
+[32m+[m[32m  const palabras= text.trim();[m
+[32m+[m[32m  return palabras;[m
+[32m+[m[41m [m
+[32m+[m[32m },[m
+[32m+[m
+   getCharacterCount: (text) => {[m
+[31m-    //TODO: esta función debe retornar el recuento de caracteres que se encuentran en el parámetro `text` de tipo `string`.[m
+[31m-  },[m
+[32m+[m[32m // TODO: esta función debe retornar el recuento de caracteres que se encuentran en el parámetro `text` de tipo `string`.[m
+[32m+[m[32m  console.log(text);[m
+[32m+[m[32m  return text.length;[m[41m [m
+[32m+[m[32m},[m[41m [m
+   getCharacterCountExcludingSpaces: (text) => {[m
+[31m-    //TODO: esta función debe retornar el recuento de caracteres excluyendo espacios y signos de puntuación que se encuentran en el parámetro `text` de tipo `string`.[m
+[31m-  },[m
+[32m+[m[32m  //TODO: esta función debe retornar el recuento de caracteres excluyendo espacios y signos de puntuación que se encuentran en el parámetro `text` de tipo `string`.[m
+[32m+[m[32m console.log(text)[m
+[32m+[m[32m return tex[m
+[32m+[m[32m},[m
+   getAverageWordLength: (text) => {    [m
+     //TODO: esta función debe retornar la longitud media de palabras que se encuentran en el parámetro `text` de tipo `string`.[m
+   },[m
+   getNumberCount: (text) => {[m
+     //TODO: esta función debe retornar cúantos números se encuentran en el parámetro `text` de tipo `string`.[m
+[31m-  },[m
+[32m+[m[32m },[m
+   getNumberSum: (text) => {[m
+     //TODO: esta función debe retornar la suma de todos los números que se encuentran en el parámetro `text` de tipo `string`.[m
+   },[m
+[31m-};[m
+[32m+[m[32m}[m
+ [m
+[32m+[m[32m//el codigo de las funciones que necesitas que te arrojen los resultados de tus metricas[m
+ export default analyzer;[m
+[1mdiff --git a/src/index.html b/src/index.html[m
+[1mindex 22153f8..a5de78e 100644[m
+[1m--- a/src/index.html[m
+[1m+++ b/src/index.html[m
+[36m@@ -1,36 +1,47 @@[m
+ <!DOCTYPE html>[m
+[31m-<html>[m
+[32m+[m[32m<html lang= "es">[m
+ [m
+ <head>[m
+   <meta charset="utf-8">[m
+   <title>Analizador de texto</title>[m
+   <link rel="stylesheet" href="style.css" />[m
+[31m-  <head/>[m
+[32m+[m
+[32m+[m[32m</head>[m
+ [m
+ [m
+ <body>[m
+[31m-  [m
+   <script src="index.js" type="module"></script>[m
+[31m- <header> [m
+[31m-  <article>[m
+ [m
+[32m+[m[32m  <header>[m[41m [m
+[32m+[m[41m  [m
+   <h1>Analizador de texto</h1>[m
+[31m-<textarea id="texto" name="texto" rows="7" cols="33">[m
+[31m-</textarea>[m
+[32m+[m
+[32m+[m[32m  <textarea placeholder="Escribe tu texto aquí..." name="user-input" rows="5" cols="15" ></textarea>[m
+[32m+[m
+[32m+[m[32m<button class="favorite styled" type="button">Eliminar texto</button>[m
+ [m
+ <ul> [m
+[31m-  [m
+[31m-  <li>Caracteres</li>[m
+[31m-  <li>Caracteres sin espacio</li>[m
+[31m-  <li>Palabras</li>[m
+[31m-  <li>Números</li>[m
+[31m-  <li>Suma números</li>[m
+[31m-  <li>Promedio longitud</li>[m
+[32m+[m[32m<li class="metricas" data-testid="word-count">Numero de palabras </li>[m[41m    [m
+ [m
+[32m+[m[32m<li  class="metricas" data-testid="character-count">Numero de letras</li>[m
+[32m+[m
+[32m+[m[32m  <li class="metricas" data-testid="no-spaces-count">Palabras </li>[m
+[32m+[m
+[32m+[m[32m  <li class="metricas" data-testid="number-count" >Números </li>[m
+[32m+[m
+[32m+[m[32m  <li class="metricas" data-testid="number-sum">Suma números</li>[m
+[32m+[m
+[32m+[m[32m  <li class="metricas" data-testid="word-length-average">Promedio longitud </li>[m
+ </ul>[m
+ [m
+[31m-  </article>[m
+[32m+[m[32m<article>[m
+[32m+[m[32m  <footer>[m
+[32m+[m[32m    <p>©2024 Ailyn Mart</p>[m
+[32m+[m[41m    [m
+[32m+[m[32m  </footer>[m
+[32m+[m[32m</article>[m
+[32m+[m
+ [m
+ </header> [m
+ </body>[m
+[31m-</html> [m
+\ No newline at end of file[m
+[32m+[m[32m</html>[m
+\ No newline at end of file[m
+[1mdiff --git a/src/index.js b/src/index.js[m
+[1mindex 58ba255..f1518fa 100644[m
+[1m--- a/src/index.js[m
+[1m+++ b/src/index.js[m
+[36m@@ -1,3 +1,31 @@[m
+ import analyzer from './analyzer.js';[m
+[32m+[m[32mconsole.log(analyzer)[m
+[32m+[m[32m//TODO: escuchar eventos del DOM e invocar  los métodos del objeto analyzer[m
+[32m+[m
+[32m+[m[32m  const textarea=document.querySelector("textarea");[m
+[32m+[m[32mtextarea.addEventListener("input",function() {[m[41m  [m
+[32m+[m[41m  [m
+[32m+[m[32m   const characterCount = analyzer.getCharacterCount(textarea.value);[m[41m [m
+[32m+[m[32m   console.log(characterCount);[m[41m [m
+[32m+[m[32m   const letras = document.querySelector ('li [data-testid="character-count"]');[m
+[32m+[m[32m   const Palabras = document.querySelector ('li [data-testid="word-count"]');[m
+[32m+[m[32m   const EspacioNulo = document.querySelector ('li ["no-spaces-count"]');[m
+[32m+[m[32m   const numeros = document.querySelector ('li [data-testid="number-count"]');[m
+[32m+[m[32m   const suma = document.querySelector ('li [data-testid="number-sum"]');[m
+[32m+[m[32m   const longitud = document.querySelector ('li [data-testid="word-length-average"]')[m
+[32m+[m
+[32m+[m[32m   letras.textContent = "letras" + analyzer.getCharacterCount[m
+[32m+[m[32m   palabras.textContent = "palabras" + analyzer.getWordCount[m
+[32m+[m[32m   espacioNulo.textContent = "letras sin espacio" + analyzer.getCharacterCountExcludingSpaces[m[41m [m
+[32m+[m[32m   numeros.textContent = "numeros" +  analyzer.getNumberCount[m
+[32m+[m[32m   suma.textContent = "suma de numeros" + analyzer.getNumberSum[m
+[32m+[m[32m   longitud.textContent = "longitud" + analyzer.getAverageWordLength[m
+[32m+[m
+[32m+[m[32m});[m
+[32m+[m
+[32m+[m[32mconst buttonToBeClicked = document.getElementById("Restablecer");[m
+[32m+[m[32m button.getElementById ("click", () => {[m[41m [m
+[32m+[m
+[32m+[m[32m });[m
+[32m+[m
+ [m
+[31m-//TODO: escuchar eventos del DOM e invocar  los métodos del objeto `analyzer`[m
+\ No newline at end of file[m
+[1mdiff --git a/src/style.css b/src/style.css[m
+[1mindex 93d96fe..42c1a16 100644[m
+[1m--- a/src/style.css[m
+[1m+++ b/src/style.css[m
+[36m@@ -1,33 +1,97 @@[m
+ label,[m
+[31m-textarea {[m
+[31m-  font-size: 0.8rem;[m
+[31m-  letter-spacing: 7px;[m
+[32m+[m
+[32m+[m
+[32m+[m[32mhtml {[m
+[32m+[m[41m [m
+[32m+[m[32m  box-sizing: border-box;[m
+[32m+[m[32m  font-size: 19px;[m
+[32m+[m[32m  color: #ffffff;[m
+[32m+[m
+[32m+[m[32m}[m
+[32m+[m[32m:before[m
+[32m+[m[32m:after {[m
+[32m+[m[32m  box-sizing: inherit;[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32mbody{[m
+[32m+[m
+[32m+[m[32m  background-image: url("fondo.png")[m
+[32m+[m[32m}[m
+[32m+[m[41m  [m
+[32m+[m[32mh1{[m
+[32m+[m[32m  text-align: center;[m
+[32m+[m[32m  width: 600px; ;[m
+[32m+[m[32m  color: #ffffff;[m
+[32m+[m[32m  background: hsla(91, 47%, 48%, 0.849);[m
+[32m+[m[32mborder: 1px solid;[m
+[32m+[m[32mbox-shadow: 0px 2px 8px 0px #01ff2bf1;[m
+[32m+[m[32mborder-radius: 10px;[m
+[32m+[m[32mpadding: 10px 10px 10px 10px;[m
+[32m+[m[32mmargin-left: auto;[m
+[32m+[m[32mmargin-right:auto ;[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m
+[32m+[m[32mtextarea{[m
+[32m+[m[41m  [m
+[32m+[m[32m  font-size: 0.9rem;[m
+[32m+[m[32m  letter-spacing: 5px;[m
+ }[m
+ [m
+ textarea {[m
+[31m-  padding: 10px;[m
+[31m-  max-width: 100%;[m
+[31m-  line-height: 1.5;[m
+[31m-  border-radius: 5px;[m
+[31m-  border: 1px solid #8d32a8;[m
+[31m-  box-shadow: 1px 1px 1px hwb(172 4% 18%);[m
+[31m-  background-color: #7d728f;[m
+[31m-  color: #fff;[m
+[32m+[m[41m  [m
+[32m+[m[32m  width: 1000px;[m[41m [m
+[32m+[m[32m  color: #ffffff;[m
+[32m+[m[32m  background: hsla(91, 47%, 48%, 0.849);[m
+[32m+[m[32m  border: 1px solid;[m
+[32m+[m[32m  box-shadow: 0px 2px 8px 0px #01ff2bf1;[m
+[32m+[m[32m  border-radius: 10px;[m
+[32m+[m[32m  padding: 10px 10px 10px 10px;[m
+ }[m
+ [m
+[31m-label {[m
+[31m-  display: block;[m
+[31m-  margin-bottom: 80px;[m
+[32m+[m[32mtextarea{[m
+[32m+[m[32m  display: flex;[m
+[32m+[m[32m  flex-direction: row;[m
+[32m+[m[32m  justify-content: center;[m
+[32m+[m[32m  align-items: center;[m
+ }[m
+ [m
+ li {[m
+[31m-  list-style-type: circle;[m
+[32m+[m[32m  text-align: center;[m
+[32m+[m[32m  width: 80px;[m[41m [m
+[32m+[m[32m  color: #ffffff;[m
+[32m+[m[32m  background: hsla(91, 47%, 48%, 0.849);[m
+[32m+[m[32mborder: 1px solid;[m
+[32m+[m[32mbox-shadow: 0px 2px 8px 0px #01ff2bf1;[m
+[32m+[m[32mborder-radius: 5px;[m
+[32m+[m[32mpadding: 5px 5px 5px 5px;[m
+[32m+[m[32mmargin-left: length;[m
+[32m+[m[32mmargin-right:length;[m
+[32m+[m
+[32m+[m[32m}[m
+[32m+[m[32mbutton{[m
+[32m+[m
+[32m+[m[32m  width: 80px;[m[41m [m
+[32m+[m[32m  color: #ffffff;[m
+[32m+[m[32m  background: hsla(91, 47%, 48%, 0.849);[m
+[32m+[m[32mborder: 1px solid;[m
+[32m+[m[32mbox-shadow: 0px 2px 8px 0px #01ff2bf1;[m
+[32m+[m[32mborder-radius: 5px;[m
+[32m+[m[32mpadding: 5px 5px 5px 5px;[m
+[32m+[m[32mmargin-left: center;[m
+[32m+[m[32mmargin-right:center;[m
+[32m+[m
+ }[m
+ [m
+[32m+[m
+[32m+[m
+[32m+[m
+[32m+[m
+[32m+[m
+ article {[m
+   min-height: 100%;[m
+   display: grid;[m
+[31m-  grid-template-rows: auto 1fr auto;[m
+[32m+[m[32m  grid-template-rows: auto 6fr auto;[m
+ }[m
+ [m
+ [m
