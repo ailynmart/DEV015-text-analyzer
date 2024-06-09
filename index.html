@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang= "es">
+
+<head>
+  <meta charset="utf-8">
+  <title>Analizador de texto</title>
+  <link rel="stylesheet" href="style.css" />
+
+</head>
+
+
+<body>
+  <script src="index.js" type="module"></script>
+
+  <header> 
+
+  <h1>Analizador de texto</h1>
+</header> 
+
+  <textarea  name="user-input" placeholder="Escribe tu texto aquí..."  ></textarea>
+
+<button onclick="eliminarTexto()"   id="reset-button" type="button">Eliminar texto</button>
+
+<ul> 
+  <li class="metricas" data-testid="word-count">Numero de palabras:  </li>    
+  <li  class="metricas" data-testid="character-count">Número de letras: </li>
+  <li class="metricas" data-testid="character-no-spaces-count">Espacio: </li>
+  <li class="metricas" data-testid="number-count" >Números: </li>
+  <li class="metricas" data-testid="number-sum">Suma de números:</li>
+  <li class="metricas" data-testid="word-length-average">Promedio de longitud: </li>
+ 
+</ul>
+
+
+  <footer>
+    <p>©2024 Ailyn Mart</p>
+    
+  </footer>
+
+
+
+
+</body>
+</html>
