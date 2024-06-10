@@ -48,9 +48,9 @@ else{
   getNumberSum: (text) => {
     
   let number = text.match(/\b\d+(\.\d+)?\b/g); // Encuentra todos los números usando una expresión regular
-  let sum = 0;
-     if (number !== null) {
-      for (var i = 0; i < number.length; i++) {
+  let sum = 0; //que la suma comience en 0
+     if (number !== null) {  //una condicion (if) "sin numero no es igual a nulo me haga un bucle"
+      for (var i = 0; i < number.length; i++) {   //declaro un bucle(for), la operación la va a hacer en cada uno de los numeros que me arroja mi match
          sum += parseFloat(number[i], 10);  // Suma los números encontrados después de convertirlos a enteros
       
           }
@@ -59,5 +59,5 @@ else{
 },
 }
 
-//el codigo de las funciones que necesitas que te arrojen los resultados de tus metricas
+
 export default analyzer;

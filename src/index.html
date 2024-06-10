@@ -7,24 +7,22 @@
   <link rel="stylesheet" href="style.css" />
 
 </head>
-
-
 <body>
   <script src="index.js" type="module"></script>
-
+  
   <header> 
-
   <h1>Analizador de texto</h1>
 </header> 
 
-  <textarea  name="user-input" placeholder="Escribe tu texto aquí..."  ></textarea>
+  <textarea placeholder="Escribe tu texto aquí..." name="user-input"></textarea>
 
-<button onclick="eliminarTexto()"   id="reset-button" type="button">Eliminar texto</button>
+<button onclick="eliminarTexto()" id="reset-button"   class="favorite styled" type="button">Eliminar texto</button>
 
 <ul> 
+
   <li class="metricas" data-testid="word-count">Numero de palabras:  </li>    
   <li  class="metricas" data-testid="character-count">Número de letras: </li>
-  <li class="metricas" data-testid="character-no-spaces-count">Espacio: </li>
+  <li class="metricas" data-testid="no-spaces-count">Espacio: </li>
   <li class="metricas" data-testid="number-count" >Números: </li>
   <li class="metricas" data-testid="number-sum">Suma de números:</li>
   <li class="metricas" data-testid="word-length-average">Promedio de longitud: </li>
@@ -36,7 +34,6 @@
     <p>©2024 Ailyn Mart</p>
     
   </footer>
-
 
 
 
